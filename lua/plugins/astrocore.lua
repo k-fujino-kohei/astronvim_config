@@ -1,4 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
@@ -64,10 +64,18 @@ return {
         ["<Leader>b"] = { desc = "Buffers" },
         -- quick save
         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+        ['<C-p>'] = {function() require("telescope.builtin").find_files() end, desc = "Find files"},
+        ['<C-b>'] = {'<cmd>Neotree toggle<cr>', desc = 'Toggle File Tree'},
+        ['<A-j>'] = { "<Cmd>move .+1<CR>==", desc = "Move lines of code up" },
+        ['<A-k>'] = { "<Cmd>move .-2<CR>==", desc = "Move lines of code down" }
       },
       t = {
         -- setting a mapping to false will disable it
         -- ["<esc>"] = false,
+      },
+      x = {
+        ["<A-j>"] = { ":move '>+1<CR>gv-gv", desc = "Move lines of code up" },
+        ["<A-k>"] = { ":move '<-2<CR>gv-gv", desc = "Move lines of code down" },
       },
     },
   },
