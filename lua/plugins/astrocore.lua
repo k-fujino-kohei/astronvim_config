@@ -27,7 +27,7 @@ return {
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
-        relativenumber = true, -- sets vim.opt.relativenumber
+        relativenumber = false, -- sets vim.opt.relativenumber
         number = true, -- sets vim.opt.number
         spell = false, -- sets vim.opt.spell
         signcolumn = "auto", -- sets vim.opt.signcolumn to auto
@@ -64,10 +64,10 @@ return {
         ["<Leader>b"] = { desc = "Buffers" },
         -- quick save
         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
-        ['<C-p>'] = {function() require("telescope.builtin").find_files() end, desc = "Find files"},
-        ['<C-b>'] = {'<cmd>Neotree toggle<cr>', desc = 'Toggle File Tree'},
-        ['<A-j>'] = { "<Cmd>move .+1<CR>==", desc = "Move lines of code up" },
-        ['<A-k>'] = { "<Cmd>move .-2<CR>==", desc = "Move lines of code down" }
+        ["<C-p>"] = { function() require("telescope.builtin").find_files() end, desc = "Find files" },
+        ["<C-b>"] = { "<cmd>Neotree toggle<cr>", desc = "Toggle File Tree" },
+        ["<A-j>"] = { "<Cmd>move .+1<CR>==", desc = "Move lines of code up" },
+        ["<A-k>"] = { "<Cmd>move .-2<CR>==", desc = "Move lines of code down" },
       },
       t = {
         -- setting a mapping to false will disable it

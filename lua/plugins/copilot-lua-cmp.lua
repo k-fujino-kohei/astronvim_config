@@ -13,15 +13,19 @@ return {
     opts.mapping["<Tab>"] = cmp.mapping(function(fallback)
       if copilot.is_visible() then
         copilot.accept()
+        return
       elseif cmp.visible() then
         cmp.select_next_item()
+        return
       elseif luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
+        return
       elseif has_words_before() then
         cmp.complete()
+        return
       else
+        fallback()
       end
-      fallback()
     end, { "i", "s" })
     return opts
   end,

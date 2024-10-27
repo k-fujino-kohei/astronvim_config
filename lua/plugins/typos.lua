@@ -1,0 +1,1 @@
+return { "poljar/typos.nvim" }
