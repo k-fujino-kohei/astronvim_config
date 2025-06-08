@@ -19,11 +19,18 @@ require "lazy_setup"
 require "polish"
 
 vim.keymap.set("n", ";", ":")
+vim.keymap.set("v", ";", ":")
 vim.keymap.set("i", "jj", "<ESC>")
 vim.opt.swapfile = false
 vim.opt.whichwrap = "h,l,<,>,[,]" --  行頭・行末から左右移動で前・次行に移動する
 vim.opt.list = true
 vim.opt.listchars:append "space:⋅"
+
+vim.api.nvim_create_autocmd("CmdlineEnter", {
+  callback = function()
+    if vim.fn.mode() == "v" or vim.fn.mode() == "V" or vim.fn.mode() == "\22" then vim.cmd "set visualbell" end
+  end,
+})
 
 -- https://neovim.discourse.group/t/how-can-i-setup-eslint-to-format-on-save/2570/5
 vim.api.nvim_create_autocmd("BufWritePre", {
