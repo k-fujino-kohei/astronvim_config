@@ -25,6 +25,12 @@ vim.opt.swapfile = false
 vim.opt.whichwrap = "h,l,<,>,[,]" --  行頭・行末から左右移動で前・次行に移動する
 vim.opt.list = true
 vim.opt.listchars:append "space:⋅"
+vim.keymap.set("x", "p", "pgvy", { noremap = true }) -- ビジュアルモードでペーストしてもヤンクバッファが上書きされないようにする
+
+-- clear statusline
+vim.opt.laststatus = 0
+vim.opt.statusline = "─"
+vim.opt.fillchars:append { stl = "─", stlnc = "─" }
 
 vim.api.nvim_create_autocmd("CmdlineEnter", {
   callback = function()

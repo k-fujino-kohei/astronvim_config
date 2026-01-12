@@ -68,6 +68,7 @@ return {
         ["<C-b>"] = { "<cmd>Neotree toggle<cr>", desc = "Toggle File Tree" },
         ["<A-j>"] = { "<Cmd>move .+1<CR>==", desc = "Move lines of code up" },
         ["<A-k>"] = { "<Cmd>move .-2<CR>==", desc = "Move lines of code down" },
+        ["cp"] = { ":let @+ = expand('%:~:.')<CR>", desc = "Copy Relative Path" },
       },
       t = {
         -- setting a mapping to false will disable it
